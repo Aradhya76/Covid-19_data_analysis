@@ -21,7 +21,7 @@ jupyter notebook notebooks/COVID19_TimeSeries_Forecasting.ipynb
 
 ## Data
 - The main dataset used: `data/owid-covid-data.csv`
-- You can update it from https://covid.ourworldindata.org/data/owid-covid-data.csv
+- You can download it from https://www.kaggle.com/datasets/bolkonsky/covid19?resource=download
 
 ## Author
 **Aradhya Parashar** — 2025
