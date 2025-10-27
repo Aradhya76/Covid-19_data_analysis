@@ -8,11 +8,7 @@ Original file is located at
 """
 
 
-
-# %%
-# ---------------------------
 # 1) Setup (install + imports)
-# ---------------------------
 !pip install --quiet prophet pandas matplotlib seaborn statsmodels
 
 import os
@@ -50,7 +46,7 @@ country_df = country_df.set_index('date')
 print('Rows for', COUNTRY, ':', len(country_df))
 
 # 4) Quick EDA & plots
-# ---------------------------
+
 # daily new cases
 plt.figure()
 plt.plot(country_df.index, country_df['new_cases'])
@@ -79,9 +75,9 @@ plt.ylabel('Total cases')
 plt.tight_layout()
 plt.show()
 
-# ---------------------------
+
 # 5) Decomposition (trend/seasonal/resid)
-# ---------------------------
+
 # Work on a weekly-resampled series to make decomposition stable
 series = country_df['new_cases'].asfreq('D').fillna(0)
 resampled = series
@@ -129,25 +125,11 @@ fig2 = m.plot_components(forecast)
 plt.show()
 
 #7) Save forecast & sample CSV
-# ---------------------------
+
 out_dir = '/content/covid_project_outputs'
 os.makedirs(out_dir, exist_ok=True)
 country_df.reset_index().to_csv(os.path.join(out_dir, f'{COUNTRY}_daily_covid_timeseries.csv'), index=False)
 forecast.to_csv(os.path.join(out_dir, f'{COUNTRY}_prophet_forecast.csv'), index=False)
 print('Saved outputs to', out_dir)
 
-# %% [markdown]
-# ## Next steps / ideas to extend
-# - Add hospitalization or vaccination data (if available) and model multivariate forecasts
-# - Use SARIMA/ARIMA for comparison with Prophet
-# - Build an interactive dashboard using Streamlit or Plotly Dash
-# - Use probabilistic forecasts and evaluate against held-out data
-
-# %% [markdown]
-# ## Notes
-# - The notebook downloads live data from Our World in Data. If you prefer an offline dataset,
-#   I have also provided a small sample CSV file separately for quick testing.
-# - If Prophet fails to install in Colab, restart the runtime and run the install cell again.
-# - Change `COUNTRY` at the top to explore other country time series.
-
-# End of notebook
+# end
