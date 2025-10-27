@@ -24,4 +24,4 @@ jupyter notebook notebooks/COVID19_TimeSeries_Forecasting.ipynb
 - You can download it from https://www.kaggle.com/datasets/bolkonsky/covid19?resource=download
 
 ## Author
-**Aradhya Parashar** — 2025
+**Aradhya Parashar** — 2024
